@@ -21,10 +21,9 @@ int main() {
                         diffmin = score[i] - score[j];
                     }
                 } else {
-                    if (diffmin > (-1)*(score[i] - score[j])) {
-                        diffmin = (-1)*(score[i] - score[j]);
+                    if (diffmin > (score[j] - score[i])) {
+                        diffmin = (score[j] - score[i]);
                     }
-
                 }
             }
         }
