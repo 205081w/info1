@@ -1,0 +1,135 @@
+\documentclass[a4paper]{jarticle}
+
+\usepackage{fullpage}
+\usepackage{fancybox}
+\usepackage{ascmac}
+\usepackage{moreverb}
+\usepackage[dviout]{graphicx}
+%\usepackage{makeidx}
+
+\makeindex
+
+%\newenvironment{moaskuhyou}{\begin{itembox}{\bf 本章の目標}}{\end{itembox}}%
+
+%\newenvironment{puzzle}{\begin{itembox}{\bf アルゴリズム的パズル}}{\end{itembox}}
+
+\def\baselinestretch{1.15}
+
+\def\programsource#1{\leftskip=0zw%
+\bigskip
+(プログラムコード: #1)\\[-.5zh]%
+\indent\rule{.9\textwidth}{.5pt}\\[-2zh]
+{\def\baselinestretch{1}\listinginput{1}{#1}}
+\vskip-2zh\rule{.9\linewidth}{.5pt}\par}
+
+% \def\programoutput#1{(実行結果) \begin{quote}\def\baselinestretch{1}\verbatiminput{programs/#1}\end{quote}}
+\def\programoutput#1{\leftskip=0zw%
+\bigskip
+(実行結果)\\[-1.2zh]
+\indent\rule{.9\textwidth}{.5pt}\\[-2.7zh]
+\begin{quote}\def\baselinestretch{1}\verbatiminput{programs/#1}\end{quote}
+\par\vskip-2zh\rule{.9\linewidth}{.5pt}\medskip\par}
+
+\makeatletter
+
+\newenvironment{enshu}{%
+\refstepcounter{enshu}%
+\par\medskip\noindent\leftskip=5.5zw%
+\makebox[0pt][r]{\fbox{\bf 演習 \theenshu}~~}%
+\ignorespaces
+}{
+\medskip\par
+}
+
+\newenvironment{practice}{
+\begin{enumerate}
+\def\theenumi{{\sf \thechapter.\@arabic\c@enumi}}
+}{
+\end{enumerate}
+}
+
+\makeatother
+
+\begin{document}
+\section{第12回：入出力・argc/argv}
+
+\subsection{ヒント}
+\noindent
+{\bf 練習問題1}:
+
+ex12-1.cを参考にargcの数によって出力を変化させる．
+
+\noindent
+{\bf 練習問題2}:
+
+ex12-2.cを参考にコマンドライン引数を文字列から整数に変換し，和を表示させる．
+
+\noindent
+{\bf 練習問題3}:
+
+ex12-3.cを参考に関数atofを使って文字列を実数に変換する．
+
+\noindent
+{\bf 発展問題1}:
+
+練習問題2を参考にコマンドライン引数を文字列から整数に変換し，除算を出力する．
+
+\noindent
+{\bf 発展問題2}:
+
+コマンドライン引数からは，整数の個数を入力し，標準入力から整数を受け取り，配列に格納する．コマンドライン引数の値が32を超えた場合はエラーを出力する．また，確認のため配列の中身を出力すると良い．
+
+\noindent
+{\bf 発展問題3}:
+
+姓と名の2つをコマンドライン引数として，姓，名の順番で表示する．
+
+\noindent
+{\bf 発展問題4}:
+
+文字列をコマンドライン引数として受け取り，その文字数を計算する．標準ライブラリ関数strlenを使っても良いが，ヌル文字（'\verb+\0+'）に到達するまで一文字ずつカウントすると文字数を計算できる．
+
+\noindent
+{\bf 発展問題5}:
+
+コマンドライン引数として生徒の数を入力し，その人数分の生徒の点数を標準入力から受け取り，平均点，最高点，最低点を計算する．生徒の数は上限を設けてよい（128以下など）．平均点，最高点，最低点の計算方法は既知であるとして，説明は省く．
+
+main関数に処理を全て記述してもよいが，平均点，最高点，最低点を求める関数を作ると良い．
+
+\noindent
+{\bf 発展問題6}:
+
+コマンドライン引数として文字列を入力し，その文字列をすべて大文字に変換する．小文字の場合に，ASCIIコード表を思いだし，'a'の文字コードと'A'の文字コードの差分を引くと良い．
+
+例えば，文字列abcを受け取った場合，
+
+ASCIIコードで，'a'=97, 'A'=65 のため，'a'-'A' = 97-65 = 32
+
+'a' - 32 = 97 - 32 = 65 (ASCIIコードで'A')
+
+'b' - 32 = 98 - 32 = 66 (ASCIIコードで'B')
+
+'c' - 32 = 99 - 32 = 67 (ASCIIコードで'C')
+
+\noindent
+{\bf 発展問題7}:
+
+発展問題6を参考に，大文字を小文字に変換する．
+
+\newpage
+\subsection{練習問題}
+\programsource{ren12-1.c}\newpage
+\programsource{ren12-2.c}\newpage
+\programsource{ren12-3.c}\newpage
+
+\subsection{発展問題}
+\programsource{hat12-1.c}\newpage
+\programsource{hat12-2.c}\newpage
+\programsource{hat12-3.c}\newpage
+\programsource{hat12-4.c}\newpage
+\programsource{hat12-5.c}\newpage
+\programsource{hat12-6.c}\newpage
+\programsource{hat12-7.c}\newpage
+
+
+\end{document}
