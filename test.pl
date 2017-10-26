@@ -15,9 +15,9 @@ foreach(readdir(DIRHANDLE)) {
     $name =~ s/[\s ]+//g;
     #print "$name\n";
 
-    rename($_, $name."_file");
-    system("cp Makefile_tmp ".$name."_file/Makefile");
-    system("cp test.sh ".$name."_file/test.sh");
+    rename($_, $name."_dir");
+    system("cp Makefile_tmp ".$name."_dir/Makefile");
+    system("cp test.sh ".$name."_dir/test.sh");
 }
 
 closedir(DIRHANDLE);
