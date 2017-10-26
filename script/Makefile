@@ -1,3 +1,3 @@
 
 clean:
-	rm -rf *_dir
+	rm -rf *_dir *.out
