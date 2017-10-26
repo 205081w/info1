@@ -1,0 +1,93 @@
+CC = gcc -W -Wall
+CHAP = 5
+FILENAME = Hat
+OUTFILE = test.out
+
+outfile:
+	echo -n > $(OUTFILE)
+
+test1: $(FILENAME)$(CHAP)-1.o
+	printf "[$(FILENAME)$(CHAP)-1]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test2-1: $(FILENAME)$(CHAP)-2-1.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-2-1]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test2-2: $(FILENAME)$(CHAP)-2-2.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-2-2]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test2-3: $(FILENAME)$(CHAP)-2-3.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-2-3]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test2-4: $(FILENAME)$(CHAP)-2-4.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-2-3]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test3-1: $(FILENAME)$(CHAP)-3-1.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-3-1]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test3-2: $(FILENAME)$(CHAP)-3-2.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-3-2]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test3-3: $(FILENAME)$(CHAP)-3-3.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-3-3]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test3-4: $(FILENAME)$(CHAP)-3-4.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-3-4]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test4: $(FILENAME)$(CHAP)-4.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-4]\n" >> $(OUTFILE)
+	printf "1\n50\n33\n" | ./$< >> $(OUTFILE)
+
+test5: $(FILENAME)$(CHAP)-5.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-5]\n" >> $(OUTFILE)
+	./$< >> $(OUTFILE)
+
+test6: $(FILENAME)$(CHAP)-6.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-6]\n" >> $(OUTFILE)
+	printf "33\n" | ./$< >> $(OUTFILE)
+
+test7: $(FILENAME)$(CHAP)-7.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-7]\n" >> $(OUTFILE)
+	printf "28\n" | ./$< >> $(OUTFILE)
+
+test8: $(FILENAME)$(CHAP)-8.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-8]\n" >> $(OUTFILE)
+	printf "3\n31\n" | ./$< >> $(OUTFILE)
+
+test9: $(FILENAME)$(CHAP)-9.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-9]\n" >> $(OUTFILE)
+	printf "3\n"./$< >> $(OUTFILE)
+
+test10: $(FILENAME)$(CHAP)-10.o
+	printf "\n" >> $(OUTFILE)
+	printf "[$(FILENAME)$(CHAP)-10]\n" >> $(OUTFILE)
+	printf "1234\n3567\n" | ./$< >> $(OUTFILE)
+
+
+%.o: %.c
+	$(CC) $< -o $@
+
+clean:
+	rm -rf *.o *.out
