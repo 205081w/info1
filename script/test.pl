@@ -30,7 +30,6 @@ foreach(readdir(DIRHANDLE)) {
             last;
         }
     }
-    #print "$id, $name\n";
     close(IN);
 
     $subdir = $id."_dir";
@@ -42,7 +41,14 @@ foreach(readdir(DIRHANDLE)) {
     opendir($SUB, $subdir);
     @files = map { -f $subdir."/$_" ? $_ : ''} readdir($SUB);
     closedir($SUB);
-    if ($files[2] =~ /hat/) {
+    $FLG = 0;
+    foreach $f (@files) {
+        if ($f =~ /hat/) {
+            $FLG = 1;
+            break;
+        }
+    }
+    if ($FLG == 1) {
         open (IN, $subdir."/Makefile") or die "$!";
         @data = <IN>;
         close(IN);
