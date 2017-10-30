@@ -31,13 +31,16 @@
 ## 2.実行方法
  まず、KUTLMSから受講者のプログラムのzipファイルを取得する。
  その後、解凍
- $ unzip 2017-***.zip
+
+ `$ unzip 2017-***.zip`
 
  次に、ディレクトリ名を学籍番号に変換 & Makefile_tmpとtest.shの配布
- $ perl test.pl
+
+ ` $ perl test.pl`
 
  そして、各ディレクトリでmakeの実行
- $ ./make.sh
+
+ `$ ./make.sh`
 
  この時、停止した場合、無限ループかgetn()による標準入力待ちなので、一旦Ctr-Cで停める。
  停止時のディレクトリが表示されているため、そのディレクトリに入り、原因を探して、Makefileかtest.shを修正する。
