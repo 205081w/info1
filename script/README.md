@@ -2,28 +2,35 @@
 
 ## 1.各ファイルの説明
 - Makefile
+
   make clean でスクリプトファイル以外のファイル・ディレクトリを削除
  
 - Makefile_tmp
+
   テスト用のMakefileで、このファイルが各ディレクトリに配布される
   テスト内容はこのファイルに記述する
  
 - clean.sh
+
   各ディレクトリの実行ファイルと出力ファイルを削除するスクリプトファイル
  
 - make.sh
+
   各ディレクトリでtest.shを呼び出し、各結果をまとめてtest.outに吐き出すスクリプトファイル
  
 - test.sh
+
   各ディレクトリに配布され、make testを順番に実行するスクリプトファイル
   makeによるエラーでmake.shが停止することへの対策
  
 - test.pl
+
   unzipされたディレクトリ名をmeibo_tmp.csvと照らし合わせて、学籍番号に変換するperlスクリプト
   その後、test.shとMakefile_tmpを各ディレクトリに配布する
   その時、ディレクトリ内のファイルが Hat*.c か hat*.c か判別して置換する
  
 - meibo_tmp.csv
+
   受講者名と学籍番号の対応が記されているcsvファイル
 
 
