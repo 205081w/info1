@@ -30,6 +30,10 @@
   その時、ディレクトリ内のファイルが Hat*.c か hat*.c か判別して置換する  
   Hat*.cやhat*.c以外の名前は無視しているので注意
  
+- recopy.pl
+
+  test.plを実行後、再度Makefileとtest.shを配布したい時に実行するperlスクリプト
+
 - meibo_tmp.csv
 
   受講者名と学籍番号の対応が記されているcsvファイル
@@ -57,6 +61,12 @@
 - ディレクトリ名を学籍番号に変換 & Makefile_tmpとtest.shの配布
 
   ` $ perl test.pl`
+
+  この後にMakefileやtest.shを書き換え、再度配布したい場合は
+
+  ` $ perl recopy.pl`
+
+  を実行する
 
   そして、各ディレクトリでmakeの実行
 
