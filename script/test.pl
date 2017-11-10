@@ -8,6 +8,7 @@ foreach(readdir(DIRHANDLE)) {
     next if /^\.{1,2}$/;
     next if /Makefile/;
     next if /test.pl/;
+    next if /recopy.pl/;
     next if /meibo/;
     next if /test.sh/;
     next if /make.sh/;
@@ -33,6 +34,9 @@ foreach(readdir(DIRHANDLE)) {
     close(IN);
 
     $subdir = $id."_dir";
+    if ($name =~ /Eritate/) {
+        $subdir = "1180297_dir";
+    }
     rename($_, $subdir);
 
     system("cp Makefile_tmp ".$subdir."/Makefile");

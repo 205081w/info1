@@ -2,8 +2,8 @@
 
 int main()
 {
-  char str[]="Hello";  //$BJ8;zNs%j%F%i%k$G$N=i4|2=(B
-  char str2[]={'H','e','l','l','o','\0'}; //$BJ8;z7?G[Ns$X$N@5E}GI=i4|2=(B.$B:G8e$K%L%kJ8;z$rBeF~$9$k(B
+  char str[]="Hello";  //文字列リテラルでの初期化
+  char str2[]={'H','e','l','l','o','\0'}; //文字型配列への正統派初期化. 最後にヌル文字を代入する.
   int i;
 
   printf("str=%s\n", &(str[1]));  //2$BHVL\$NJ8;z$N%"%I%l%9$rEO$9(B
